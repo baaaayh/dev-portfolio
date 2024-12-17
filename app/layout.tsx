@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
-import "@/app/styles/reset.scss";
-import "@/app/styles/globals.scss";
 import Header from "@/app/components/layout/header";
 import ScrollContainer from "./components/layout/scroll-container";
+import { Suspense } from "react";
+import "@/app/styles/reset.scss";
+import "@/app/styles/globals.scss";
 
 const NotoSansKR = Noto_Sans_KR({
     variable: "--font-noto-sans-kr",
@@ -25,7 +26,9 @@ export default function RootLayout({
             <body className={`${NotoSansKR.variable}`}>
                 <div className="wrap">
                     <Header />
-                    <ScrollContainer>{children}</ScrollContainer>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ScrollContainer>{children}</ScrollContainer>
+                    </Suspense>
                 </div>
             </body>
         </html>

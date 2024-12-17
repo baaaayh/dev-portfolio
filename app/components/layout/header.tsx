@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import styles from "@/app/styles/layout/header.module.scss";
@@ -102,8 +103,31 @@ export default function Header() {
                     </div>
                 </nav>
                 <div className={styles.utils}>
-                    <a href="https://github.com/baaaayh" target="_blank">
+                    <a
+                        className={`${styles["link"]}`}
+                        href="https://github.com/baaaayh"
+                        target="_blank"
+                    >
                         Github
+                        <Image
+                            src={`/images/icons/icon_link_arrow.svg`}
+                            width={18}
+                            height={18}
+                            alt={"github link"}
+                        />
+                    </a>
+                    <a
+                        className={`${styles["link"]}`}
+                        href="https://portfolio-9590f.web.app/"
+                        target="_blank"
+                    >
+                        Publishing
+                        <Image
+                            src={`/images/icons/icon_link_arrow.svg`}
+                            width={18}
+                            height={18}
+                            alt={"github link"}
+                        />
                     </a>
                 </div>
             </div>

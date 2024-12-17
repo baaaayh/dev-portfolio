@@ -1,0 +1,41 @@
+.noise {
+    z-index: 0;
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+    background-image: url("https://cdn.prod.website-files.com/63dcb6e1a80e9454b630f4c4/644af0299bc01254815ae442_noise-overlay-2.png");
+    background-position: 0 0;
+    background-size: 200px;
+    display: block;
+    position: absolute;
+    inset: 0%;
+    pointer-events: none;
+}
+
+.fade {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 280px;
+    padding-top: 96px;
+    inset: auto 0% 0%;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #10101000, #101010 60%);
+    z-index: 5;
+}
+
+.arrow {
+    opacity: 0.4;
+    animation: scrollDown 1.34s ease infinite;
+}
+
+@keyframes scrollDown {
+    50% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+}
