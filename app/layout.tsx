@@ -6,9 +6,9 @@ import { Suspense } from "react";
 import "@/app/styles/reset.scss";
 import "@/app/styles/globals.scss";
 
-const NotoSansKR = Noto_Sans_KR({
+const notoSansKR = Noto_Sans_KR({
     variable: "--font-noto-sans-kr",
-    preload: false,
+    weight: ["100", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${NotoSansKR.variable}`}>
+            <body className={`${notoSansKR.variable}`}>
                 <div className="wrap">
                     <Header />
                     <Suspense fallback={<div>Loading...</div>}>
