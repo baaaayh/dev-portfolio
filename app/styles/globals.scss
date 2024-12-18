@@ -50,6 +50,9 @@ body {
         position: relative;
         overflow: hidden;
     }
+    &--work {
+        padding: 64px 0 200px 0;
+    }
     &__inner {
         max-width: 1440px;
         width: 100%;

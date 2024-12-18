@@ -1,0 +1,25 @@
+.gnb {
+    ul {
+        li {
+            font-size: 0;
+        }
+    }
+    &__button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 36px;
+        border-radius: 25px;
+        &:hover {
+            background-image: linear-gradient(270deg, #0000, #f2f2f20d);
+        }
+        &.gnb__about {
+            &:hover {
+                background-image: linear-gradient(to right, #0000, #f2f2f20d);
+            }
+        }
+    }
+}

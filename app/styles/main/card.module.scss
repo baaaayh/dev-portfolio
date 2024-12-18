@@ -1,0 +1,90 @@
+.card {
+    &__edge {
+        outline-offset: -1px;
+        background-color: #f2f2f20a;
+        border-radius: 36px;
+        outline: 1px solid #f2f2f20d;
+        align-self: stretch;
+        padding: 12px;
+        position: relative;
+        box-shadow: 0 40px 80px #00000080;
+    }
+    &__glare {
+        height: 1px;
+        margin-bottom: -1px;
+        z-index: 1;
+        background-image: linear-gradient(
+            to right,
+            #0000 5%,
+            #fffc 35%,
+            #fff 50%,
+            #fffc 65%,
+            #0000 95%
+        );
+        position: absolute;
+        inset: 0% 0% auto;
+    }
+}
+
+.window {
+    background-image: linear-gradient(190deg, #252525, #000);
+    color: #f2f2f2;
+    border: 1px solid #3d3d3d;
+    transition: border 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block;
+    position: relative;
+    overflow: hidden;
+    grid-row-gap: 88px;
+    border-radius: 24px;
+    padding-top: 44px;
+    padding-left: 44px;
+    padding-right: 44px;
+    &__edge {
+        position: absolute;
+        height: 1px;
+        margin-bottom: -1px;
+        background-image: linear-gradient(
+            to right,
+            #0000 20%,
+            #fff 50%,
+            #0000 80%
+        );
+        inset: 0% 0% auto;
+        z-index: 1;
+    }
+    &__title {
+        position: relative;
+        z-index: 1;
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 47px;
+            color: #f2f2f2;
+        }
+        h3 {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 26px;
+            color: #f2f2f280;
+        }
+    }
+    &__figure {
+        position: relative;
+        margin-top: 88px;
+        z-index: 1;
+        img {
+            display: block;
+            max-width: 1190px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            margin-bottom: -30px;
+            transform: translateY(24px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+    }
+
+    .window__figure {
+    }
+}

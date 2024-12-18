@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Display from "@/app/components/main/display";
+import ProjectList from "@/app/components/main/project-list";
 import styles from "@/app/styles/page.module.scss";
 export default function Page() {
     return (
@@ -20,6 +21,11 @@ export default function Page() {
                         />
                     </div>
                 </div>
+            </section>
+            <section className="section section--work">
+                <section className="section__inner">
+                    <ProjectList />
+                </section>
             </section>
         </main>
     );

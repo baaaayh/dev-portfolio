@@ -1,63 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef, useCallback } from "react";
+import Gnb from "@/app/components/layout/gnb";
 import Link from "next/link";
 import styles from "@/app/styles/layout/header.module.scss";
 
 export default function Header() {
-    const navButtons = useRef<HTMLAnchorElement[]>([]);
-    const navInner = useRef<HTMLDivElement>(null);
-    const glowEl = useRef<HTMLElement>(null);
-    const bgEl = useRef<HTMLElement>(null);
-    const lightXpos = useRef<number>(0);
-
-    useEffect(() => {
-        const lightEl = glowEl.current as HTMLElement;
-        if (lightXpos) {
-            lightXpos.current = parseFloat(
-                getComputedStyle(lightEl).marginLeft
-            );
-        }
-    }, []);
-
-    const handleClick = useCallback(
-        (e: MouseEvent, index: number) => {
-            const parent = navInner.current as HTMLElement;
-            const target = e.currentTarget as HTMLAnchorElement;
-            const lightEl = glowEl.current as HTMLElement;
-            const pillEl = bgEl.current as HTMLElement;
-
-            if (target && parent) {
-                const targetRect = target.getBoundingClientRect().x;
-                const parentRect = parent.getBoundingClientRect().x;
-
-                const xPos = targetRect - parentRect;
-
-                lightEl.style.marginLeft =
-                    index === 1
-                        ? `${lightXpos.current + xPos}px`
-                        : `${lightXpos.current}px`;
-                pillEl.style.left = `${xPos}px`;
-            }
-        },
-        [navInner, bgEl, glowEl, lightXpos]
-    );
-
-    useEffect(() => {
-        const buttons = navButtons.current;
-        buttons.forEach((button, index) => {
-            button.addEventListener("click", (e) => handleClick(e, index));
-        });
-
-        return () => {
-            buttons.forEach((button, index) => {
-                button.removeEventListener("click", (e) =>
-                    handleClick(e, index)
-                );
-            });
-        };
-    }, [handleClick]);
-
     return (
         <header className={styles.header}>
             <div className={styles["header__inner"]}>
@@ -67,66 +14,34 @@ export default function Header() {
                         <small>FRONT-END DEVELOPER</small>
                     </Link>
                 </h1>
-                <nav className={styles.gnb}>
-                    <span className={styles["gnb__glow"]} ref={glowEl}></span>
-                    <div className={styles["gnb__wrapper"]}>
-                        <div className={styles["gnb__inner"]} ref={navInner}>
-                            <ul>
-                                <li>
-                                    <Link
-                                        href="/"
-                                        className={styles["gnb__work"]}
-                                        ref={(el) => {
-                                            if (el) navButtons.current[0] = el;
-                                        }}
-                                    >
-                                        Work
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="/about"
-                                        className={styles["gnb__about"]}
-                                        ref={(el) => {
-                                            if (el) navButtons.current[1] = el;
-                                        }}
-                                    >
-                                        About
-                                    </Link>
-                                </li>
-                            </ul>
-                            <span
-                                className={styles["gnb__pill"]}
-                                ref={bgEl}
-                            ></span>
-                        </div>
-                    </div>
-                </nav>
+                <Gnb />
                 <div className={styles.utils}>
                     <a
                         className={`${styles["link"]}`}
                         href="https://github.com/baaaayh"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Github
                         <Image
                             src={`/images/icons/icon_link_arrow.svg`}
                             width={18}
                             height={18}
-                            alt={"github link"}
+                            alt="github link"
                         />
                     </a>
                     <a
                         className={`${styles["link"]}`}
                         href="https://portfolio-9590f.web.app/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Publishing
                         <Image
                             src={`/images/icons/icon_link_arrow.svg`}
                             width={18}
                             height={18}
-                            alt={"github link"}
+                            alt="portfolio link"
                         />
                     </a>
                 </div>
