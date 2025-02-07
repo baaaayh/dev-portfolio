@@ -1,6 +1,12 @@
 {
     "projects": [
         {
+            "id": 2,
+            "project": "BALMAIN",
+            "thumb": "balmain.png",
+            "desc": "ZUSTAND와 PostgreSQL을 사용해 BALMAIN 영문 사이트와 장바구니를 구현했습니다."
+        },
+        {
             "id": 1,
             "project": "Simple Board",
             "thumb": "simple_board.png",
